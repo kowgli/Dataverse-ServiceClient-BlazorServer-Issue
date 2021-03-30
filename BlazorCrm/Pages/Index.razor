@@ -1,0 +1,18 @@
+﻿@page "/"
+
+@using Microsoft.PowerPlatform.Dataverse.Client;
+
+WhoAmI: @userId
+
+@code
+{
+    Guid userId;
+
+    protected override void OnInitialized()
+    {
+        string connectionStr = "authtype=ClientSecret;url=https://***.crm4.dynamics.com;clientid=***;clientsecret=***";
+        ServiceClient serviceClient = new ServiceClient(connectionStr);
+
+        userId = serviceClient.CallerId;
+    }
+}
