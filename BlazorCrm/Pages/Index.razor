@@ -11,6 +11,8 @@ WhoAmI: @userId
     protected override void OnInitialized()
     {
         string connectionStr = "authtype=ClientSecret;url=https://***.crm4.dynamics.com;clientid=***;clientsecret=***";
+
+        // This hangs indefinitely
         ServiceClient serviceClient = new ServiceClient(connectionStr);
 
         userId = serviceClient.CallerId;
